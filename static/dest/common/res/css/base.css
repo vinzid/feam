@@ -1,0 +1,16 @@
+@charset "utf-8";
+html {
+  font-size: 16px;
+}
+input {
+  font-size: 16px;
+}
+.jstpl {
+  visibility: hidden!important;
+}
+.jstpl.rendered {
+  visibility: visible!important;
+}
+.h {
+  display: none;
+}

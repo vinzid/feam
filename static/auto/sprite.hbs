@@ -1,0 +1,12 @@
+.ico{
+  background-image:url(/common/res/img/sprite.png);
+  background-repeat: no-repeat;
+  background-position: -9999px -9999px;
+}
+{{#sprites}}
+.{{name}} {
+  background-position: {{#if x}}-{{/if}}{{x}}{{#if x}}px{{/if}} {{#if y}}-{{/if}}{{y}}{{#if y}}px{{/if}}!important;
+  width: {{px.width}};
+  height: {{px.height}};
+}
+{{/sprites}}

@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{{meta.title}}</title>
+<meta name="keywords" content="{{meta.keywords}}" />
+<meta name="description" content="{{meta.description}}" />
+<link rel="stylesheet" href="{{constant.URL.RESOURCE}}/bower_components/bootstrap/dist/css/bootstrap.min.css?{{hash.bower.bootstrap}}" />
+<link rel="stylesheet" href="{{constant.URL.RESOURCE}}/common/res/css/base_admin.css?{{hash.css.common_res_css_base_admin}}" />
+<link rel="stylesheet" href="{{constant.URL.RESOURCE}}/common/res/css/sprite.css?{{hash.css.common_res_css_sprite}}" />
+<link rel="stylesheet" href="{{constant.URL.RESOURCE}}/common/libs/header_admin/style.css?{{hash.css.common_libs_header_admin_style}}" />
+<link rel="stylesheet" type="text/css" href="{{constant.URL.RESOURCE}}/common/libs/nav_admin/style.css?{{hash.css.common_libs_nav_admin_style}}" />
+<link rel="stylesheet" href="{{constant.URL.RESOURCE}}/goods/libs/list/style.css?{{hash.css.goods_libs_list_style}}">
+<link rel="stylesheet" type="text/css" href="{{constant.URL.RESOURCE}}/common/libs/footer_admin/style.css?{{hash.css.common_libs_footer_admin_style}}" />
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">网站名称</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">操作员：姓名</a></li>
+        <li><a href="#">退出</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+<div class="col-xs-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li class="active">
+      <a href="javascript:;" data-toggle="collapse" data-target="#goods-subnav">商品管理</a>
+      <ul id="goods-subnav" class="collapse in">
+        <li {{#HBSinArray variable.page "['goods_list', 'goods_edit']"}}class="active"{{/HBSinArray}}>
+          <a href="/goods/list">商品列表</a>
+        </li>
+        <li {{#equal variable.page 'goods_add'}}class="active"{{/equal}}>
+          <a href="/goods/add">添加商品</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;" data-toggle="collapse" data-target="#other-subnav">其他管理</a>
+      <ul id="other-subnav" class="collapse">
+        <li><a href="#">其他列表</a></li>
+        <li><a href="#">添加其他</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;" data-toggle="collapse" data-target="#other-subnav-2">其它管理</a>
+      <ul id="other-subnav-2" class="collapse">
+        <li><a href="#">其它列表</a></li>
+        <li><a href="#">添加其它</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div class="bx0 col-sm-9 col-xs-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">商品列表</h1>
+  <table class="goods_list table table-striped table-hover table-bordered text-center" id="goods_list"></table>
+  <script class="jstpl" tpl="goods_list" type="text/x-handlebars-template">
+    <tbody>
+    <tr>
+      \{{#each config.list}}
+      <th class="text-center">\{{name}}</th>
+      \{{/each}}
+    </tr>
+    \{{#each list as |value k|}}
+    <tr class="goods_item" goods_id="\{{id}}">
+      \{{#each ../config.list}}
+      <td>
+        \{{#equal type 'ico'}}
+        <span class="glyphicon glyphicon-\{{object value key}}"></span>
+        \{{/equal}}
+        \{{#equal type 'operation'}}
+          \{{#each option}}
+          \{{#equal type 'link'}}
+          <a class="to_\{{key}}" href="\{{{url}}}\{{../../id}}">\{{name}}</a>
+          \{{/equal}}
+          \{{#equal type 'ajax'}}
+          <a class="to_\{{key}}" href="#">\{{name}}</a>
+          \{{/equal}}
+          \{{/each}}
+        \{{/equal}}
+        \{{#equal type 'string'}}
+        \{{object value key}}
+        \{{/equal}}
+      </td>
+      \{{/each}}
+    </tr>
+    \{{/each}}
+    </tbody>
+  </script>
+</div>
+</div>
+</div>
+<script order="0">
+var linkUrl={user:'{{constant.linkUrl.user}}'},rendered={{variable.rendered}};
+var dataUrl={render:'{{{constant.dataUrl.render}}}'};
+</script>
+<script>
+dataUrl.del = '{{{constant.dataUrl.del}}}';
+linkUrl.view = '{{{constant.linkUrl.view}}}';
+linkUrl.edit = '{{{constant.linkUrl.edit}}}';
+</script>
+<script order="1" src="{{constant.URL.RESOURCE}}/bower_components/jquery/dist/jquery.min.js?{{hash.bower.jquery}}"></script>
+<script order="2" src="{{constant.URL.RESOURCE}}/bower_components/js-cookie/src/js.cookie.min.js?{{hash.bower.js-cookie}}"></script>
+<script order="3" src="{{constant.URL.RESOURCE}}/bower_components/handlebars/handlebars.min.js?{{hash.bower.handlebars}}"></script>
+<script order="4" src="{{constant.URL.RESOURCE}}/bower_components/bootstrap/dist/js/bootstrap.min.js?{{hash.bower.bootstrap}}"></script>
+<script order="5" src="{{constant.URL.RESOURCE}}/common/res/js/base.js?{{hash.js.common_res_js_base}}"></script>
+<script src="{{constant.URL.RESOURCE}}/goods/libs/list/script.js?{{hash.js.goods_libs_list_script}}"></script>
+</body>
+</html>

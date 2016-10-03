@@ -1,0 +1,4 @@
+node_modules/*
+static/auto/node_modules/*
+static/temp/*
+static/dest/bower_components/*

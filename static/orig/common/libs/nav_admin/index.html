@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="./style.css" />
+<div class="col-xs-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li class="active">
+      <a href="javascript:;" data-toggle="collapse" data-target="#goods-subnav">商品管理</a>
+      <ul id="goods-subnav" class="collapse in">
+        <li {{#HBSinArray variable.page "['goods_list', 'goods_edit']"}}class="active"{{/HBSinArray}}>
+          <a href="/goods/list">商品列表</a>
+        </li>
+        <li {{#equal variable.page 'goods_add'}}class="active"{{/equal}}>
+          <a href="/goods/add">添加商品</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;" data-toggle="collapse" data-target="#other-subnav">其他管理</a>
+      <ul id="other-subnav" class="collapse">
+        <li><a href="#">其他列表</a></li>
+        <li><a href="#">添加其他</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;" data-toggle="collapse" data-target="#other-subnav-2">其它管理</a>
+      <ul id="other-subnav-2" class="collapse">
+        <li><a href="#">其它列表</a></li>
+        <li><a href="#">添加其它</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>

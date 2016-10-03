@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{{meta.title}}</title>
+<meta name="keywords" content="{{meta.keywords}}" />
+<meta name="description" content="{{meta.description}}" />
+<link rel="stylesheet" href="{{constant.URL.RESOURCE}}/bower_components/bootstrap/dist/css/bootstrap.min.css?{{hash.bower.bootstrap}}" />
+<link rel="stylesheet" href="{{constant.URL.RESOURCE}}/common/res/css/base_admin.css?{{hash.css.common_res_css_base_admin}}" />
+<link rel="stylesheet" href="{{constant.URL.RESOURCE}}/common/res/css/sprite.css?{{hash.css.common_res_css_sprite}}" />
+<link rel="stylesheet" href="{{constant.URL.RESOURCE}}/common/libs/header_admin/style.css?{{hash.css.common_libs_header_admin_style}}" />
+<link rel="stylesheet" type="text/css" href="{{constant.URL.RESOURCE}}/common/libs/nav_admin/style.css?{{hash.css.common_libs_nav_admin_style}}" />
+<link rel="stylesheet" href="{{constant.URL.RESOURCE}}/goods/libs/info/style.css?{{hash.css.goods_libs_info_style}}">
+<link rel="stylesheet" href="{{constant.URL.RESOURCE}}/goods/libs/relate/style.css?{{hash.css.goods_libs_relate_style}}">
+<link rel="stylesheet" type="text/css" href="{{constant.URL.RESOURCE}}/common/libs/footer_admin/style.css?{{hash.css.common_libs_footer_admin_style}}" />
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">网站名称</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">操作员：姓名</a></li>
+        <li><a href="#">退出</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+<div class="col-xs-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li class="active">
+      <a href="javascript:;" data-toggle="collapse" data-target="#goods-subnav">商品管理</a>
+      <ul id="goods-subnav" class="collapse in">
+        <li {{#HBSinArray variable.page "['goods_list', 'goods_edit']"}}class="active"{{/HBSinArray}}>
+          <a href="/goods/list">商品列表</a>
+        </li>
+        <li {{#equal variable.page 'goods_add'}}class="active"{{/equal}}>
+          <a href="/goods/add">添加商品</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;" data-toggle="collapse" data-target="#other-subnav">其他管理</a>
+      <ul id="other-subnav" class="collapse">
+        <li><a href="#">其他列表</a></li>
+        <li><a href="#">添加其他</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:;" data-toggle="collapse" data-target="#other-subnav-2">其它管理</a>
+      <ul id="other-subnav-2" class="collapse">
+        <li><a href="#">其它列表</a></li>
+        <li><a href="#">添加其它</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div class="col-sm-5 col-xs-offset-3 col-md-5 col-md-offset-2 main">
+<div class="bx bx0">
+  <h1 class="page-header">{{variable.title}}</h1>
+</div>
+<div class="bx0 col-sm-12" id="goods_info_box">
+  {{#equal variable.type 'edit'}}
+  <h2 class="sub-header">主要信息</h2>
+  {{/equal}}
+  <div class="bxc">
+    <form id="goods_info" class="goods_info jstpl form-horizontal" tpl="goods_info">
+    \{{#each config.goods}}
+    <div value="\{{object ../goods key}}" type="\{{type}}" class="form-group">
+      <label class="col-lg-2 col-md-3 col-sm-4 col-xs-5 control-label" for="\{{key}}">\{{name}}：</label>
+      <div class="col-lg-10 col-md-9 col-sm-8 col-xs-7">
+      \{{#equal type 'string'}}<label class="control-label" for="\{{key}}">\{{object ../goods key}}</label>\{{/equal}}
+      \{{#equal type 'text'}}
+      <input type="text" name="\{{key}}" value="\{{object ../goods key}}" class="form-control" />
+      \{{/equal}}
+      \{{#equal type 'textarea'}}
+      <textarea name="\{{key}}" class="form-control">\{{object ../goods key}}</textarea>
+      \{{/equal}}
+      \{{#equal type 'editor'}}
+      <textarea name="\{{key}}" id="\{{key}}" class="form-control toCkeditor">\{{object ../goods key}}</textarea>
+      \{{/equal}}
+      \{{#equal type 'select'}}
+      <select name="\{{key}}" class="form-control">
+        \{{#each option}}
+        <option value="\{{value}}">\{{label}}</option>
+        \{{/each}}
+      </select>
+      \{{/equal}}
+      \{{#equal type 'radio'}}
+      \{{#each option}}
+      <label class="radio-inline">
+        <input type="radio" name="\{{../key}}" value="\{{value}}"><span>\{{label}}</span>
+      </label>
+      \{{/each}}
+      \{{/equal}}
+      \{{#equal type 'checkbox'}}
+      \{{#each option}}
+      <label class="checkbox-inline">
+        <input type="checkbox" name="\{{../key}}" value="\{{value}}"><span>\{{label}}</span>
+      </label>
+      \{{/each}}
+      \{{/equal}}
+      </div>
+    </div>     
+    \{{/each}}
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-md-offset-3 col-sm-offset-4 col-xs-offset-5 col-sm-10">
+        <input type="submit" value="确认" class="btn btn-default" />
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+</div>
+<div class="bx goods_relate_box h col-sm-4 col-md-4 main" id="goods_relate_box">
+  <h2 class="sub-header">关联信息</h2>
+  <form id="goods_relate" class="jstpl form-horizontal" tpl="goods_relate">
+  <div class="form-group">
+    <label for="relate_goods" class="col-sm-4 control-label">关联商品：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" name="relate_goods" id="relate_goods" class="form-control" value="\{{relate.goods}}" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="relate_article" class="col-sm-4 control-label">关联文章：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" name="relate_article" id="relate_article" class="form-control" value="\{{relate.goods}}" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="relate_accessory" class="col-sm-4 control-label">关联附件：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" name="relate_accessory" id="relate_accessory" class="form-control" value="\{{relate.goods}}" />
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-10">
+      <input type="submit" value="确认" class="btn btn-default" />
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+</div>
+<script order="0">
+var linkUrl={user:'{{constant.linkUrl.user}}'},rendered={{variable.rendered}};
+var dataUrl={render:'{{{constant.dataUrl.render}}}'};
+</script>
+<script>
+var type = '{{variable.type}}';
+{{#if constant.dataUrl.edit}}
+dataUrl.edit='{{{constant.dataUrl.edit}}}';
+{{/if}}
+{{#if constant.dataUrl.add}}
+dataUrl.add='{{{constant.dataUrl.add}}}';
+{{/if}}
+</script>
+<script order="1" src="{{constant.URL.RESOURCE}}/bower_components/jquery/dist/jquery.min.js?{{hash.bower.jquery}}"></script>
+<script order="2" src="{{constant.URL.RESOURCE}}/bower_components/js-cookie/src/js.cookie.min.js?{{hash.bower.js-cookie}}"></script>
+<script order="3" src="{{constant.URL.RESOURCE}}/bower_components/handlebars/handlebars.min.js?{{hash.bower.handlebars}}"></script>
+<script order="4" src="{{constant.URL.RESOURCE}}/bower_components/bootstrap/dist/js/bootstrap.min.js?{{hash.bower.bootstrap}}"></script>
+<script order="5" src="{{constant.URL.RESOURCE}}/common/res/js/base.js?{{hash.js.common_res_js_base}}"></script>
+<script src="{{constant.URL.RESOURCE}}/goods/libs/info/script.js?{{hash.js.goods_libs_info_script}}"></script>
+<script src="{{constant.URL.RESOURCE}}/bower_components/ckeditor/ckeditor.js?{{hash.bower.ckeditor}}"></script>
+<script src="{{constant.URL.RESOURCE}}/goods/libs/relate/script.js?{{hash.js.goods_libs_relate_script}}"></script>
+</body>
+</html>

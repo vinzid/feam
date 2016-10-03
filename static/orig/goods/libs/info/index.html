@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="./style.css">
+<div class="col-sm-5 col-xs-offset-3 col-md-5 col-md-offset-2 main">
+<div class="bx bx0">
+  <h1 class="page-header">{{variable.title}}</h1>
+</div>
+<div class="bx0 col-sm-12" id="goods_info_box">
+  {{#equal variable.type 'edit'}}
+  <h2 class="sub-header">主要信息</h2>
+  {{/equal}}
+  <div class="bxc">
+    <form id="goods_info" class="goods_info jstpl form-horizontal" tpl="goods_info">
+    \{{#each config.goods}}
+    <div value="\{{object ../goods key}}" type="\{{type}}" class="form-group">
+      <label class="col-lg-2 col-md-3 col-sm-4 col-xs-5 control-label" for="\{{key}}">\{{name}}：</label>
+      <div class="col-lg-10 col-md-9 col-sm-8 col-xs-7">
+      \{{#equal type 'string'}}<label class="control-label" for="\{{key}}">\{{object ../goods key}}</label>\{{/equal}}
+      \{{#equal type 'text'}}
+      <input type="text" name="\{{key}}" value="\{{object ../goods key}}" class="form-control" />
+      \{{/equal}}
+      \{{#equal type 'textarea'}}
+      <textarea name="\{{key}}" class="form-control">\{{object ../goods key}}</textarea>
+      \{{/equal}}
+      \{{#equal type 'editor'}}
+      <textarea name="\{{key}}" id="\{{key}}" class="form-control toCkeditor">\{{object ../goods key}}</textarea>
+      \{{/equal}}
+      \{{#equal type 'select'}}
+      <select name="\{{key}}" class="form-control">
+        \{{#each option}}
+        <option value="\{{value}}">\{{label}}</option>
+        \{{/each}}
+      </select>
+      \{{/equal}}
+      \{{#equal type 'radio'}}
+      \{{#each option}}
+      <label class="radio-inline">
+        <input type="radio" name="\{{../key}}" value="\{{value}}"><span>\{{label}}</span>
+      </label>
+      \{{/each}}
+      \{{/equal}}
+      \{{#equal type 'checkbox'}}
+      \{{#each option}}
+      <label class="checkbox-inline">
+        <input type="checkbox" name="\{{../key}}" value="\{{value}}"><span>\{{label}}</span>
+      </label>
+      \{{/each}}
+      \{{/equal}}
+      </div>
+    </div>     
+    \{{/each}}
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-md-offset-3 col-sm-offset-4 col-xs-offset-5 col-sm-10">
+        <input type="submit" value="确认" class="btn btn-default" />
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+</div>
+<script>
+var type = '{{variable.type}}';
+{{#if constant.dataUrl.edit}}
+dataUrl.edit='{{{constant.dataUrl.edit}}}';
+{{/if}}
+{{#if constant.dataUrl.add}}
+dataUrl.add='{{{constant.dataUrl.add}}}';
+{{/if}}
+</script>
+<script src="./script.js"></script>
+<script src="/bower_components/ckeditor/ckeditor.js"></script>

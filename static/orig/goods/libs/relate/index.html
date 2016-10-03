@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="./style.css">
+<div class="bx goods_relate_box h col-sm-4 col-md-4 main" id="goods_relate_box">
+  <h2 class="sub-header">关联信息</h2>
+  <form id="goods_relate" class="jstpl form-horizontal" tpl="goods_relate">
+  <div class="form-group">
+    <label for="relate_goods" class="col-sm-4 control-label">关联商品：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" name="relate_goods" id="relate_goods" class="form-control" value="\{{relate.goods}}" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="relate_article" class="col-sm-4 control-label">关联文章：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" name="relate_article" id="relate_article" class="form-control" value="\{{relate.goods}}" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="relate_accessory" class="col-sm-4 control-label">关联附件：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" name="relate_accessory" id="relate_accessory" class="form-control" value="\{{relate.goods}}" />
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-10">
+      <input type="submit" value="确认" class="btn btn-default" />
+    </div>
+  </div>
+  </form>
+</div>
+<script src="./script.js"></script>

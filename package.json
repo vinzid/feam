@@ -1,0 +1,19 @@
+{
+  "name": "FEAM",
+  "version": "0.0.1",
+  "description": "Front End Architecture Model",
+  "main": "app.js",
+  "author": {
+    "name": "Vinzid",
+    "email": "vinzid@yahoo.com"
+  },
+  "scripts": {
+    "test": "eslint **/*.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.13.3",
+    "express-handlebars": "^3.0.0",
+    "request": "^2.72.0"
+  }
+}

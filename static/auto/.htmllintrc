@@ -1,0 +1,12 @@
+{
+  "indent-width": 2,
+  "indent-style": "spaces",
+  "line-end-style": false,
+  "id-class-style": false,
+  "attr-name-style": false,
+  "attr-req-value": false,
+  "attr-no-dup": false,
+  "label-req-for": false,
+  "id-no-dup": false,
+  "tag-close": false
+}

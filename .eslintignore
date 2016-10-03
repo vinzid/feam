@@ -1,0 +1,4 @@
+**/node_modules/*
+static/orig/*
+static/dest/*
+static/temp/*

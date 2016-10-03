@@ -1,0 +1,8 @@
+{
+  "bootstrap": "v3.3.7",
+  "ckeditor": "v4.5.11",
+  "handlebars": "v4.0.5",
+  "jquery": "v2.2.4",
+  "jquery-legacy": "v1.12.4",
+  "js-cookie": "v2.1.3"
+}

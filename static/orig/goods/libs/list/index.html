@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="./style.css">
+<div class="bx0 col-sm-9 col-xs-offset-3 col-md-10 col-md-offset-2 main">
+  <h1 class="page-header">商品列表</h1>
+  <table class="goods_list table table-striped table-hover table-bordered text-center" id="goods_list"></table>
+  <script class="jstpl" tpl="goods_list" type="text/x-handlebars-template">
+    <tbody>
+    <tr>
+      \{{#each config.list}}
+      <th class="text-center">\{{name}}</th>
+      \{{/each}}
+    </tr>
+    \{{#each list as |value k|}}
+    <tr class="goods_item" goods_id="\{{id}}">
+      \{{#each ../config.list}}
+      <td>
+        \{{#equal type 'ico'}}
+        <span class="glyphicon glyphicon-\{{object value key}}"></span>
+        \{{/equal}}
+        \{{#equal type 'operation'}}
+          \{{#each option}}
+          \{{#equal type 'link'}}
+          <a class="to_\{{key}}" href="\{{{url}}}\{{../../id}}">\{{name}}</a>
+          \{{/equal}}
+          \{{#equal type 'ajax'}}
+          <a class="to_\{{key}}" href="#">\{{name}}</a>
+          \{{/equal}}
+          \{{/each}}
+        \{{/equal}}
+        \{{#equal type 'string'}}
+        \{{object value key}}
+        \{{/equal}}
+      </td>
+      \{{/each}}
+    </tr>
+    \{{/each}}
+    </tbody>
+  </script>
+</div>
+<script>
+dataUrl.del = '{{{constant.dataUrl.del}}}';
+linkUrl.view = '{{{constant.linkUrl.view}}}';
+linkUrl.edit = '{{{constant.linkUrl.edit}}}';
+</script>
+<script src="./script.js"></script>

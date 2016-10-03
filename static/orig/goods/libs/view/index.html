@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/common/res/css/sprite.css">
+<div class="bx0">
+  <h1>商品详情</h1>
+  <p>编号：{{goods.id}}</p>
+  <p>名称：{{goods.goods_name}}</p>
+  <p>价格：{{goods.price}}</p>
+  <p>品牌：{{goods.brand_id}}</p>
+</div>
+<div class="ico ico-red_50"></div>
+<div id="logined"></div>
+<script class="jstpl" tpl="logined" type="text/x-handlebars-template">
+logined: \{{#if logined}}\{{logined}}\{{else}}0\{{/if}}
+</script>

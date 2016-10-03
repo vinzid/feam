@@ -1,0 +1,21 @@
+{
+  "common_libs_admin_footer_style": "67489f",
+  "common_libs_admin_header_style": "c9d784",
+  "common_libs_footer_admin_style": "67489f",
+  "common_libs_footer_style": "67489f",
+  "common_libs_header_admin_style": "c9d784",
+  "common_libs_header_style": "c9d784",
+  "common_libs_nav_admin_style": "8ccd0f",
+  "common_res_css_admin_base": "4889e2",
+  "common_res_css_base": "4889e2",
+  "common_res_css_base - Copy": "4889e2",
+  "common_res_css_base_admin": "5864e0",
+  "common_res_css_sprite": "f5433e",
+  "goods_libs_add_style": "4957b1",
+  "goods_libs_edit_style": "06fe3e",
+  "goods_libs_info_style": "ebbd44",
+  "goods_libs_list_style": "4957b1",
+  "goods_libs_relate_style": "948d17",
+  "goods_libs_seo_style": "4957b1",
+  "user_libs_login_style": "4957b1"
+}

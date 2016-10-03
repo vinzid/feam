@@ -1,0 +1,20 @@
+.ico {
+  background-image: url(/common/res/img/sprite.png?10001b);
+  background-repeat: no-repeat;
+  background-position: -9999px -9999px;
+}
+.ico-black_50 {
+  background-position: 0 0!important;
+  width: 50px;
+  height: 50px;
+}
+.ico-gray_50 {
+  background-position: -62px 0 !important;
+  width: 50px;
+  height: 50px;
+}
+.ico-red_50 {
+  background-position: 0 -62px !important;
+  width: 50px;
+  height: 50px;
+}

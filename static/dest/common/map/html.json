@@ -1,0 +1,51 @@
+{
+  "common/libs/admin_footer/index.html": [],
+  "common/libs/admin_header/index.html": [],
+  "common/libs/footer/index.html": [
+    "goods/views/view.json",
+    "user/views/index.json",
+    "user/views/login.json"
+  ],
+  "common/libs/footer_admin/index.html": [
+    "goods/views/add.json",
+    "goods/views/edit.json",
+    "goods/views/list.json"
+  ],
+  "common/libs/header/index.html": [
+    "goods/views/view.json",
+    "user/views/index.json",
+    "user/views/login.json"
+  ],
+  "common/libs/header_admin/index.html": [
+    "goods/views/add.json",
+    "goods/views/edit.json",
+    "goods/views/list.json"
+  ],
+  "common/libs/nav_admin/index.html": [
+    "goods/views/add.json",
+    "goods/views/edit.json",
+    "goods/views/list.json"
+  ],
+  "goods/libs/add/index.html": [],
+  "goods/libs/edit/index.html": [],
+  "goods/libs/info/index.html": [
+    "goods/views/add.json",
+    "goods/views/edit.json"
+  ],
+  "goods/libs/list/index.html": [
+    "goods/views/list.json"
+  ],
+  "goods/libs/relate/index.html": [
+    "goods/views/edit.json"
+  ],
+  "goods/libs/seo/index.html": [],
+  "goods/libs/view/index.html": [
+    "goods/views/view.json"
+  ],
+  "user/libs/info/index.html": [
+    "user/views/index.json"
+  ],
+  "user/libs/login/index.html": [
+    "user/views/login.json"
+  ]
+}
