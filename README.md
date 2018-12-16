@@ -19,7 +19,7 @@ FEAM 是与后端完全分离的支持自动化构建的独立前端架构模型
 4. Add support to fetch data direct via Node.js, so the page that need to consider SEO can output the rendered page.  
 可以直接通过 Node.js 层获取后端数据，从而需要考虑 SEO 的页面可以直接输出组装好的页面。
 
-5. Add proxy process which use Node.js as transition of client and back end, so the browser which don't support CORS (such as ie 9 and below) can still use this model.
+5. Add proxy process which use Node.js as transition of client and back end, so the browser which don't support CORS (such as ie 9 and below) can still use this model.  
 Node.js 层可以作为客户端和后端的过渡代理，这样不支持 CORS 标准的浏览器（例如 ie9 及以下）也可以使用此模型。
 
 ## Installation 安装
