@@ -26,11 +26,11 @@ Node.js 层可以作为客户端和后端的过渡代理，这样不支持 CORS 
 
 1. Install server dependency 安装服务端依赖
 >cd feam  
-npm install
+npm install --no-save
 
 2. Install build dependency 安装构建依赖
 >cd feam/static/auto  
-npm install
+npm install --no-save
 
 3. Install bower dependency 安装客户端依赖
 >gulp bowerAll
